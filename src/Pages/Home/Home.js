@@ -1,12 +1,12 @@
 import React from 'react';
-import Navbar from '../../SharedPages/Navbar';
+// import Navbar from '../../SharedPages/Navbar';
 import Banner from './Banner';
 import Parts from './Parts';
 
 const Home = () => {
     return (
         <div>
-            <Navbar></Navbar>
+            {/* <Navbar></Navbar> */}
             <Banner></Banner>
             <Parts></Parts>
         </div>
