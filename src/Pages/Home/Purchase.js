@@ -16,7 +16,28 @@ const Purchase = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = (data) =>{
-        console.log(data)
+       const purchase = {
+           purchaseId: id,
+           userName: data.name,
+           userEmail: user.email,
+           partName: item.name,
+           phone: data.phone,
+           address: data.address
+           
+       }
+       fetch('http://localhost:5000/purchase',{
+           method: 'POST',
+           headers: {
+               'content-type': 'application/json'
+           },
+           body: JSON.stringify(purchase)
+       })
+       .then(res=>res.json())
+       .then(data => {
+           alert('booking success')
+       })
+
+
     };
 
     return (
@@ -101,7 +122,7 @@ const Purchase = () => {
                         class="input input-bordered w-full max-w-xs" />
 
 
-                    <input type="submit" className='btn mt-2' value='Purchase' />
+                    <input  type="submit" className='btn mt-2' value='Purchase' />
                 </form>
             </div>
         </div>
