@@ -1,54 +1,59 @@
+import { async } from '@firebase/util';
 import React, { useEffect } from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../../SharedPages/Loading';
 
 
 
-const Login = () => {
-    const location = useLocation()
+const Register = () => {
+    const { register, formState: { errors }, handleSubmit } = useForm();
+    const [signInWithGoogle, gUser, gLoading, gerror] = useSignInWithGoogle(auth);
     const navigate = useNavigate()
 
-    const [signInWithGoogle, gUser, gLoading, gerror] = useSignInWithGoogle(auth);
-    const { register, formState: { errors }, handleSubmit } = useForm();
-    let from = location.state?.from?.pathname || "/";
-
-
-
-
     const [
-        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
         user,
         loading,
         error,
-    ] = useSignInWithEmailAndPassword(auth);
-    
-    // const [token] = useToken(user || gUser)
-    let errorMessage;
-    if(user || gUser){
-        return  navigate(from, { replace: true });
-    }
-    // useEffect(()=>{
-    //     if(token){
-    //         return  navigate(from, { replace: true });
-    
-    //     }
-    // },[token,from,navigate])
+      ] = useCreateUserWithEmailAndPassword(auth);
 
-    if (loading || gLoading) {
+    //   const [token] = useToken(user || gUser)
+      
+      const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+
+
+    
+    let errorMessage;
+   useEffect(()=>{
+    if(user || gUser){
+        navigate('/home')
+
+    }
+   },[])
+
+    if (loading || gLoading || updating) {
         return <Loading></Loading>
     }
-    if (error || gerror) {
-        errorMessage = <p className='text-red-500'><span className='text-red'>{error?.message} {gerror?.message}</span></p>
+    if (error || gerror || updateError) {
+        errorMessage = <p className='text-red-500'><span className='text-red'>{error?.message} {gerror?.message} {updateError?.message}</span></p>
     }
 
 
-    const onSubmit = data => {
-        // console.log(data)
-        signInWithEmailAndPassword(data.email, data.password)
 
+    //   const navigate = useNavigate()
+
+
+
+    const onSubmit = async data => {
+        // console.log(data)
+       await createUserWithEmailAndPassword(data.email, data.password)
+       await updateProfile({displayName: data.name})
+       console.log('update successfully')
+    //    console.log(data)
 
     };
 
@@ -57,9 +62,33 @@ const Login = () => {
         <div className='flex h-screen justify-center items-center'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
-                    <h2 className="text-center text-2xl font-bold">Login</h2>
+                    <h2 className="text-center text-2xl font-bold">Register</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)}>
+                        {/* for name  */}
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Your Name"
+                                className="input input-bordered w-full max-w-xs"
+                                {...register("name", {
+                                    required: {
+                                        value: true,
+                                        message: 'name is required'
+                                    },
+                                   
+                                })}
+                            />
+                            <label className="label">
+                                {errors.name?.type === 'required' && <span className="text-red-500 label-text-alt">{errors.name.message}</span>}
+
+
+                            </label>
+                        </div>
+
                         {/* for email validation */}
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
@@ -117,9 +146,9 @@ const Login = () => {
                         </div>
                         {errorMessage}
 
-                        <input type="submit" className='btn w-full' value='Login' />
+                        <input type="submit" className='btn w-full' value='Register' />
                     </form>
-                    <p>New to Doctors Portal / <Link className='text-secondary' to='/register'>Create new account</Link></p>
+                    <p>Already create an account / <Link className='text-secondary' to='/login'>Go to Login page</Link></p>
 
                     <div className="divider">OR</div>
                     <button className="btn btn-outline" onClick={() => signInWithGoogle()}>Continue With Google</button>
@@ -132,4 +161,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;

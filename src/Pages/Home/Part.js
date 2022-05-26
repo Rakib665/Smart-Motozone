@@ -5,9 +5,8 @@ const Part = ({part}) => {
     const navigate = useNavigate()
     const {_id,name,img,description,price,availableQuantity,mimimuOrderQuantity} =part
     const purchaseBtn = (id) =>{
-        navigate('/purchase')
-        console.log(id)
 
+        navigate(`/purchase/${id}`)
     }
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
