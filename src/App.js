@@ -12,6 +12,9 @@ import Register from './Pages/Register/Register';
 import Navbar from './SharedPages/Navbar';
 import RequiredAuth from './SharedPages/Required';
 import 'react-toastify/dist/ReactToastify.css';
+import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
+import AddAProduct from './Pages/Dashboard/AddAProduct';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin';
 
 
 function App() {
@@ -30,6 +33,9 @@ function App() {
         <Route index element={<MyOrders></MyOrders>}></Route>
         <Route path='review' element={<MyReview></MyReview>}></Route>
         <Route path='profile' element={<MyProfile></MyProfile>}></Route>
+        <Route path='manageOrder' element={<ManageAllOrders></ManageAllOrders>}></Route>
+        <Route path='addProduct' element={<AddAProduct></AddAProduct>}></Route>
+        <Route path='makeAdmin' element={<MakeAdmin></MakeAdmin>}></Route>
 
       </Route>
       <Route path='/login' element={<Login></Login>}></Route>

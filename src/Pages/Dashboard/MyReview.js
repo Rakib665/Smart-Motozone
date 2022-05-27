@@ -8,4 +8,4 @@ const MyReview = () => {
     );
 };
 
-export default MyReview;<h2>My Review</h2>
+export default MyReview;

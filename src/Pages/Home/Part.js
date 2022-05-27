@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Part = ({part}) => {
     const navigate = useNavigate()
-    const {_id,name,img,description,price,availableQuantity,mimimuOrderQuantity} =part
+    const {_id,name,img,description,price,availableQuantity,minimuOrderQuantity} =part
     const purchaseBtn = (id) =>{
 
         navigate(`/purchase/${id}`)
@@ -18,7 +18,7 @@ const Part = ({part}) => {
                 <h3>Price:{price}</h3>
                 <p>{description}</p>
                 <p>Available Quantity: {availableQuantity}</p>
-                <p>Minimum Order Quantity: {mimimuOrderQuantity}</p>
+                <p>Minimum Order Quantity: {minimuOrderQuantity}</p>
                 <div className="card-actions">
                     <button className="btn btn-primary" onClick={() =>purchaseBtn(_id)}>Buy Now</button>
                 </div>

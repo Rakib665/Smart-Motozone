@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../../SharedPages/Loading';
+import useToken from '../hooks/useToken';
 
 
 
@@ -20,7 +21,7 @@ const Register = () => {
         error,
       ] = useCreateUserWithEmailAndPassword(auth);
 
-    //   const [token] = useToken(user || gUser)
+      const [token] = useToken(user || gUser)
       
       const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
@@ -29,8 +30,8 @@ const Register = () => {
     
     let errorMessage;
    useEffect(()=>{
-    if(user || gUser){
-        navigate('/home')
+    if(token){
+       navigate('/home')
 
     }
    },[])

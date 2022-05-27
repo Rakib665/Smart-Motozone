@@ -10,7 +10,7 @@ const Dashboard = () => {
 
                 {/* <!-- Page content here --> */}
                 <Outlet></Outlet>
-                <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                <label htmlFor="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
             </div>
             <div class="drawer-side">
@@ -20,6 +20,9 @@ const Dashboard = () => {
                     <li><Link to="/dashboard">My Orders</Link></li>
                     <li><Link to="/dashboard/review">My Reviews</Link></li>
                     <li><Link to="/dashboard/profile">My Profile</Link></li>
+                    <li><Link to="/dashboard/manageOrder">Manage All Order</Link></li>
+                    <li><Link to="/dashboard/addProduct">Add Product</Link></li>
+                    <li><Link to="/dashboard/makeAdmin">Make Admin</Link></li>
                 </ul>
 
             </div>
