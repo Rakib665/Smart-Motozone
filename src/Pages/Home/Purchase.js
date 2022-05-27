@@ -23,7 +23,8 @@ const Purchase = () => {
            userEmail: user.email,
            partName: item.name,
            phone: data.phone,
-           address: data.address
+           address: data.address,
+           quantity: data.quantity
            
        }
        fetch('http://localhost:5000/purchase',{

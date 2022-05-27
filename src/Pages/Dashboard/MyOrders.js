@@ -17,23 +17,25 @@ const MyOrders = () => {
                 <table class="table w-full">
                     <thead>
                         <tr>
-                            <th></th>
                             <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>Quantity</th>
+                            <th>Delete</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            orders.map(order =>  <tr>
-                                <th>1</th>
+                            orders.map(order => <tr>
                                 <td>{order.partName}</td>
-                                <td>Quality Control Specialist</td>
-                                <td>Blue</td>
+                                <td>{order.quantity}</td>
+                                <td><button class="btn btn-xs">Delete order</button>
+                                </td>
+                                <td><button class="btn btn-xs">Make Payment</button>
+                                </td>
                             </tr>
-                           )
+                            )
                         }
-                       
+
                     </tbody>
                 </table>
             </div>
