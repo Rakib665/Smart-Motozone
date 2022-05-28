@@ -22,7 +22,7 @@ const MakeAdmin = () => {
                     <thead>
                         <tr>
                             <th>User Email</th>
-                            <th>Admin</th>
+                            <th>Make Admin</th>
                         </tr>
                     </thead>
                     <tbody>

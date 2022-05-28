@@ -23,7 +23,7 @@ const Review = () => {
         // </div>
         <div className='grid lg:grid-cols-3 gap-2 p-5'>
             {
-                review.map(r =>  <div class="card w-96 bg-primary text-neutral-content">
+                review.map(r =>  <div class="card w-96 bg-gray-400	 text-neutral-content">
                 <div class="card-body items-center text-center">
                 <ReactStars {...firstExample} value={r.rating} />
                     <p className='text-white'>{r.review}</p>

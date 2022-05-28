@@ -12,13 +12,12 @@ const Navbar = () => {
         localStorage.removeItem('accessToken')
     }
     const menuItems = <>
-        <li><Link to='/home'>Home</Link></li>
-        <li><Link to='/about'>About</Link></li>
-        <li><Link to='/appointment'>Appointment</Link></li>
+        <li className='font-bold'><Link to='/home'>Home</Link></li>
+        <li className='font-bold'><Link to='/blogs'>Blogs</Link></li>
         {
-            user && <li><Link to='/dashboard'>Dashboard</Link></li>
+            user && <li className='font-bold'><Link to='/dashboard'>Dashboard</Link></li>
         }
-        <li>{user ? <button onClick={logout}>Sign Out</button> : <Link to='/login'>Login</Link> }</li>
+        <li className='font-bold'>{user ? <button className='font-bold' onClick={logout}>Sign Out</button> : <Link to='/login'>Login</Link> }</li>
     </>
     return (
         <div className="navbar bg-base-100">

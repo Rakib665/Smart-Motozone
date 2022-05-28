@@ -11,12 +11,12 @@ const BusinessSummary = () => {
             </div>
 
             <div className='flex justify-between p-8'>
-                <div>
+                {/* <div>
                     <FontAwesomeIcon  className='h-12 w-12' icon={faFlag} />
                     <p className='text-4xl text-primary font-bold'>100</p>
                     <p>Countries</p>
                     
-                </div>
+                </div> */}
                 <div>
                     <FontAwesomeIcon  className='h-12 w-12' icon={faListCheck} />
                     <p className='text-4xl text-primary font-bold'>200</p>

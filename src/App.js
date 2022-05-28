@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
 import AddAProduct from './Pages/Dashboard/AddAProduct';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin';
+import Blogs from './Pages/Blogs/Blogs';
 
 
 function App() {
@@ -24,13 +25,15 @@ function App() {
     <Routes>
       <Route path='/' element={<Home></Home>}></Route>
       <Route path='/home' element={<Home></Home>}></Route>
+      <Route path='/blogs' element={<Blogs></Blogs>}></Route>
       <Route path='/purchase/:id' element={<RequiredAuth>
         <Purchase></Purchase>
       </RequiredAuth>}></Route>
       <Route path='/dashboard' element={<RequiredAuth>
         <Dashboard></Dashboard>
       </RequiredAuth>}>
-        <Route index element={<MyOrders></MyOrders>}></Route>
+        {/* <Route index element={<MyOrders></MyOrders>}></Route> */}
+        <Route path='myOrder' element={<MyOrders></MyOrders>}></Route>
         <Route path='review' element={<MyReview></MyReview>}></Route>
         <Route path='profile' element={<MyProfile></MyProfile>}></Route>
         <Route path='manageOrder' element={<ManageAllOrders></ManageAllOrders>}></Route>

@@ -37,6 +37,7 @@ const Purchase = () => {
        .then(res=>res.json())
        .then(data => {
            toast(`your ${item.name} purchase successfully`)
+           
        })
 
 
@@ -61,7 +62,7 @@ const Purchase = () => {
             <div className='mt-3'>
                 <form onSubmit={handleSubmit(onSubmit)}>
                 <label className="label">
-                        <span className="label-text">Quantity</span>
+                        <span className="label-text">Order Quantity</span>
                     </label>
 
                     <input
