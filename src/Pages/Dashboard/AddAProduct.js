@@ -27,12 +27,8 @@ const AddAProduct = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                 <input type="text" placeholder="Product Name" class="input input-bordered input-md w-full max-w-xs mb-2" {...register("name")} />
                 
-                {/* <input className='w-75 p-3 mb-2 border-2 ' placeholder='Name'   {...register("name")} /> */}
                 <br />
-                <input type="text" placeholder="Supplier Name" class="input input-bordered input-md w-full max-w-xs mb-2" {...register("supplier_name")} />
 
-                {/* <input className='mb-3 w-50' placeholder='Supplier Name'   {...register("supplier_name")} /> */}
-                <br />
                 <input class="input input-bordered input-md w-full max-w-xs mb-2" placeholder='Description' {...register("description")} />
                 <br />
                 <input class="input input-bordered input-md w-full max-w-xs mb-2" placeholder='Price' type="number" {...register("price")} />
