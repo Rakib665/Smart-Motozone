@@ -60,6 +60,7 @@ const AddReview = () => {
 
     const reviewSubmit = (event) => {
         const review = event.target.customerReview.value;
+        console.log(review)
         const rating = currentValue;
 
         const setReview = {
@@ -86,7 +87,7 @@ const AddReview = () => {
            <form onSubmit={reviewSubmit} >
            <div style={styles.container}>
                 <h2>Ratings </h2>
-                {/* <div style={styles.stars}>
+                <div style={styles.stars}>
                     {stars.map((_, index) => {
                         return (
 
@@ -104,7 +105,7 @@ const AddReview = () => {
                             />
                         )
                     })}
-                </div> */}
+                </div>
                 <input name='customerReview' style={styles.textarea} type="text" placeholder="Type here" class="input input-bordered input-accent w-full max-w-xs" />
 
 
