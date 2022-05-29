@@ -34,7 +34,7 @@ const Register = () => {
        navigate('/home')
 
     }
-   },[])
+   },[token])
 
     if (loading || gLoading || updating) {
         return <Loading></Loading>
