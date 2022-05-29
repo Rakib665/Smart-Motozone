@@ -47,7 +47,7 @@ const Purchase = () => {
         <div className='grid justify-center'>
             <div class="card w-96 bg-base-100 shadow-xl ">
                 <figure class="px-10 pt-10">
-                    <img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" class="rounded-xl" />
+                    <img src={item.img} alt="Shoes" class="rounded-xl" />
                 </figure>
                 <div class="card-body items-center text-center">
                     <h2 className='text-2xl font-bold'>{item.name}</h2>

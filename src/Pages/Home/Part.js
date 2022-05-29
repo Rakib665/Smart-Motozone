@@ -20,7 +20,7 @@ const Part = ({part}) => {
                 <p>Available Quantity: {availableQuantity}</p>
                 <p>Minimum Order Quantity: {minimuOrderQuantity}</p>
                 <div className="card-actions">
-                    <button className="btn btn-primary" onClick={() =>purchaseBtn(_id)}>Buy Now</button>
+                    <button className="btn btn-primary bg-gray-300" onClick={() =>purchaseBtn(_id)}>Buy Now</button>
                 </div>
             </div>
         </div>

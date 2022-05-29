@@ -39,6 +39,10 @@ const MyOrders = () => {
         }
 
     }
+    const payment = (id) =>{
+        navigate('/payment')
+
+    }
     return (
         <div>
             <h2>My order: {orders.length}</h2>
@@ -60,10 +64,12 @@ const MyOrders = () => {
                                 
                                 <td>{order.partName}</td>
                                 <td>{order.quantity}</td>
-                                <td><button onClick={()=>deleteItem(`${order._id}`)} class="btn btn-xs">Cancel Order</button>
+                                <td>
+                                    
+                                    <button onClick={()=>deleteItem(`${order._id}`)} class="btn btn-xs">Cancel Order</button>
 
                                 </td>
-                                <td><button  class="btn btn-xs">Make Payment</button>
+                                <td><button onClick={()=>payment(order._id)}  class="btn btn-xs">Make Payment</button>
                                 </td>
                             </tr>
                             )

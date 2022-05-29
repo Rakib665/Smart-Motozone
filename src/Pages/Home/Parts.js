@@ -14,9 +14,9 @@ const Parts = () => {
            <h2 className='uppercase text-3xl text-center font-bold text-gray-600' >Available for sell</h2>
             <h2 className='uppercase text-xl text-center font-bold text-gray-400' >Don't late to buy</h2>
            </div>
-            <div className='grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 gap-2 p-6'>
+            <div className='grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 gap-2 p-6 mt-0'>
             {
-                parts.slice(0,3).map(part => <Part
+                parts.slice(0,6).map(part => <Part
                 key={part._id}
                 part={part}
                 ></Part>)

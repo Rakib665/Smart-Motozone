@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
 const AddAProduct = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) =>{
-        fetch(`http://localhost:5000/parts`,{
+        fetch(`https://rocky-bayou-52722.herokuapp.com/parts`,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -40,7 +39,7 @@ const AddAProduct = () => {
                 <input class="input input-bordered input-md w-full max-w-xs mb-2"  placeholder='Minimum Quantity' type="text" {...register("minimuOrderQuantity")}  />
                 <br />
                 
-                <input className='mb-3 btn btn-primary text-white' type="submit" value='Add Service' />
+                <input className='mb-3 btn btn-primary text-white' type="submit" value='Add Product' />
 
                 </form>
             </div>

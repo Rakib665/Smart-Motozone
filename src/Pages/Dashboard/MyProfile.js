@@ -1,38 +1,101 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 
 const MyProfile = () => {
-    return (
-        <div class="hero min-h-screen bg-base-200">
-        <div class="hero-content flex-col lg:flex-row-reverse">
-          <div class="text-center lg:text-left">
-            <h1 class="text-5xl font-bold">My Profile</h1>
-            <p class="py-6">You can store your</p>
-          </div>
-          <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <div class="card-body">
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Email</span>
-                </label>
-                <input type="text" placeholder="email" class="input input-bordered" />
-              </div>
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text">Password</span>
-                </label>
-                <input type="text" placeholder="password" class="input input-bordered" />
-                <label class="label">
-                  <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
-                </label>
-              </div>
-              <div class="form-control mt-6">
-                <button class="btn btn-primary">Login</button>
-              </div>
-            </div>
-          </div>
+  const [user] = useAuthState(auth)
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) =>{
+    const profile = {
+      name: data.name,
+      email: data.email,
+      education:data.education,
+      phoneNum: data.phone,
+      address: data.address,
+      linkdin: data.linkdin
+    }
+    fetch('https://rocky-bayou-52722.herokuapp.com/profile', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(profile)
+    })
+    .then(res => res.json())
+    .then(data => {
+      toast.success('successfully add profile in database')
+    })
+  }
+
+  return (
+    <div class="hero min-h-screen" >
++
+      <div class="hero-overlay bg-base-200">
+      <h2 className='text-4xl uppercase font-bold text-gray-600 mt-2 mb-0.5 text-center'>My Profile!</h2>
+
+      </div>
+      <div class="hero-content text-center w-full">
+        <div class="max-w-md">
+         <form onSubmit={handleSubmit(onSubmit)}>
+
+         <label className="label">
+                        <span className="label-text">Name</span>
+                    </label>
+                    <input
+
+                        type="text"readOnly defaultValue={user.displayName} placeholder="name"
+                        {...register("name")}
+                        class="input input-bordered w-full " />
+
+
+                    <label className="label">
+                        <span className="label-text">Email</span>
+                    </label>
+                    <input
+                        type="email" readOnly defaultValue={user.email} placeholder="email"
+                        {...register("email")}
+                        class="input input-bordered w-full max-w-xs" />
+
+                    <label className="label">
+                        <span className="label-text">Education</span>
+                    </label>
+                    <input
+                        type="text"  placeholder="education"
+                        {...register("education")}
+                        class="input input-bordered w-full max-w-xs" />
+
+                    <label className="label">
+                        <span className="label-text">Address</span>
+                    </label>
+                    <input
+                        type="text" placeholder="address"
+                        {...register("address")}
+                        class="input input-bordered w-full max-w-xs" />
+                    <label className="label">
+                        <span className="label-text">Phone Number</span>
+                    </label>
+                    <input
+                        type="text" placeholder="phone"
+                        {...register("phone")}
+                        class="input input-bordered w-full max-w-xs" />
+                    <label className="label">
+                        <span className="label-text">Linkdin Profile</span>
+                    </label>
+                    <input
+                        type="text" placeholder="linkdin"
+                        {...register("linkdin")}
+                        class="input input-bordered w-full max-w-xs" />
+
+                        <input type="submit" className='btn btn-primary mt-2' value='Submit' />
+
+
+         </form>
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
 export default MyProfile;

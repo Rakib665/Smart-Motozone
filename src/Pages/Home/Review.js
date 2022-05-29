@@ -9,29 +9,28 @@ const Review = () => {
             .then(res => res.json())
             .then(data => setReview(data))
     }, [])
-   
+
     const firstExample = {
         size: 30,
-       
+
         edit: false
     };
     return (
 
-        // <div>
-        //     <h2>Review page</h2>
-            
-        // </div>
+
         <div className='grid lg:grid-cols-3 gap-2 p-5'>
             {
-                review.map(r =>  <div class="card w-96 bg-gray-400	 text-neutral-content">
-                <div class="card-body items-center text-center">
-                <ReactStars {...firstExample} value={r.rating} />
-                    <p className='text-white'>{r.review}</p>
-                   
+                review.map(r => <div class="card w-96 bg-gray-400	 text-neutral-content">
+                    <div class="card-body items-center text-center">
+                        <ReactStars {...firstExample} value={r.rating} />
+                        <p className='text-white'>{r.review}</p>
+
+                    </div>
                 </div>
-            </div>)
+
+                )
             }
-           
+
         </div>
     );
 };

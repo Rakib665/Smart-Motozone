@@ -17,6 +17,8 @@ import AddAProduct from './Pages/Dashboard/AddAProduct';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin';
 import Blogs from './Pages/Blogs/Blogs';
 import ManageProducts from './Pages/Dashboard/ManageProducts';
+import NotFound from './SharedPages/NotFound';
+import Payment from './Pages/Payment/Payment';
 
 
 function App() {
@@ -45,6 +47,8 @@ function App() {
       </Route>
       <Route path='/login' element={<Login></Login>}></Route>
       <Route path='/register' element={<Register></Register>}></Route>
+      <Route path='/payment' element={<Payment></Payment>}></Route>
+      <Route path='*' element={<NotFound></NotFound>}></Route>
     </Routes>
     <ToastContainer></ToastContainer>
     </div>
