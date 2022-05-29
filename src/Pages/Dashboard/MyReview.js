@@ -66,7 +66,7 @@ const MyReview = () => {
             rating: rating,
             review: review
         }
-        fetch('http://localhost:5000/review',{
+        fetch('https://rocky-bayou-52722.herokuapp.com/review',{
             method: 'POST',
             headers:{
                 'content-type': 'application/json'

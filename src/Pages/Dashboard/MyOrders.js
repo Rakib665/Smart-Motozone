@@ -9,7 +9,7 @@ const MyOrders = () => {
     const [user] = useAuthState(auth)
     const navigate = useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:5000/purchase?email=${user.email}`,{
+        fetch(`https://rocky-bayou-52722.herokuapp.com/purchase?email=${user.email}`,{
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -28,7 +28,7 @@ const MyOrders = () => {
     const deleteItem = (id) => {
         const proceed = window.confirm('are you sure?')
         if (proceed) {
-            fetch(`http://localhost:5000/purchase/${id}`, {
+            fetch(`https://rocky-bayou-52722.herokuapp.com/purchase/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

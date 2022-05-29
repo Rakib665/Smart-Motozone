@@ -11,7 +11,7 @@ const ManageProducts = () => {
     const deleteItem = (id) => {
         const proceed = window.confirm('are you sure?')
         if (proceed) {
-            fetch(`http://localhost:5000/part/${id}`, {
+            fetch(`https://rocky-bayou-52722.herokuapp.com/part/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
