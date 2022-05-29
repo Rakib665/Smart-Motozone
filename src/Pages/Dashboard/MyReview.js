@@ -53,13 +53,13 @@ const AddReview = () => {
 
     };
     // const submit_review = (event) =>{
-    //     const description = event.target.textReview.value;
+    //     const description = event.target.customerReview.value;
     //     console.log(description)
 
     // }
 
     const reviewSubmit = (event) => {
-        const review = event.target.textReview.value;
+        const review = event.target.customerReview.value;
         const rating = currentValue;
 
         const setReview = {
@@ -82,11 +82,11 @@ const AddReview = () => {
 
     return (
         <div>
-            <h2>My Review</h2>
+            <h2 className='text-center'>My Review</h2>
            <form onSubmit={reviewSubmit} >
            <div style={styles.container}>
                 <h2>Ratings </h2>
-                <div style={styles.stars}>
+                {/* <div style={styles.stars}>
                     {stars.map((_, index) => {
                         return (
 
@@ -104,8 +104,8 @@ const AddReview = () => {
                             />
                         )
                     })}
-                </div>
-                <input name='textReview' style={styles.textarea} type="text" placeholder="Type here" class="input input-bordered input-accent w-full max-w-xs" />
+                </div> */}
+                <input name='customerReview' style={styles.textarea} type="text" placeholder="Type here" class="input input-bordered input-accent w-full max-w-xs" />
 
 
                 {/* <button
@@ -114,7 +114,7 @@ const AddReview = () => {
                 >
                     Submit
                 </button> */}
-                <input type="submit" value='submit' style={styles.button} />
+                <input type="submit" value='submit' className='btn btn-primary' />
 
             </div>
            </form>
