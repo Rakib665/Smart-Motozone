@@ -14,6 +14,7 @@ const Navbar = () => {
     const menuItems = <>
         <li className='font-bold'><Link to='/home'>Home</Link></li>
         <li className='font-bold'><Link to='/blogs'>Blogs</Link></li>
+        <li className='font-bold'><Link to='/portfolio'>My Portfolio</Link></li>
         {
             user && <li className='font-bold'><Link to='/dashboard'>Dashboard</Link></li>
         }

@@ -19,6 +19,7 @@ import Blogs from './Pages/Blogs/Blogs';
 import ManageProducts from './Pages/Dashboard/ManageProducts';
 import NotFound from './SharedPages/NotFound';
 import Payment from './Pages/Payment/Payment';
+import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
       </Route>
       <Route path='/login' element={<Login></Login>}></Route>
       <Route path='/register' element={<Register></Register>}></Route>
+      <Route path='/portfolio' element={<MyPortfolio></MyPortfolio>}></Route>
       <Route path='/payment' element={<Payment></Payment>}></Route>
       <Route path='*' element={<NotFound></NotFound>}></Route>
     </Routes>
