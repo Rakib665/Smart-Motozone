@@ -18,7 +18,7 @@ const Review = () => {
     return (
 
 
-        <div className='grid lg:grid-cols-3 gap-2 p-5'>
+        <div className='grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-1 gap-2 p-5'>
             {
                 review.map(r => <div class="card w-96 bg-gray-400	 text-neutral-content">
                     <div class="card-body items-center text-center">

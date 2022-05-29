@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 import { toast } from 'react-toastify';
 
 
-const MyReview = () => {
+const AddReview = () => {
     const [currentValue, setCurrentValue] = useState(0);
     const [hoverValue, setHoverValue] = useState(undefined);
     const stars = Array(5).fill(0)
@@ -66,7 +66,7 @@ const MyReview = () => {
             rating: rating,
             review: review
         }
-        fetch('https://rocky-bayou-52722.herokuapp.com/review',{
+        fetch('https://rocky-bayou-52722.herokuapp.com/setReview',{
             method: 'POST',
             headers:{
                 'content-type': 'application/json'
@@ -105,7 +105,7 @@ const MyReview = () => {
                         )
                     })}
                 </div>
-                <input name='textReview' style={styles.textarea} type="What's your experience" placeholder="Type here" class="input input-bordered input-accent w-full max-w-xs" />
+                <input name='textReview' style={styles.textarea} type="text" placeholder="Type here" class="input input-bordered input-accent w-full max-w-xs" />
 
 
                 {/* <button
@@ -122,4 +122,4 @@ const MyReview = () => {
     );
 };
 
-export default MyReview;
+export default AddReview;

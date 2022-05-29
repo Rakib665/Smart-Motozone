@@ -4,7 +4,7 @@ import './App.css';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import MyProfile from './Pages/Dashboard/MyProfile';
-import MyReview from './Pages/Dashboard/MyReview';
+import AddReview from './Pages/Dashboard/AddReview';
 import Home from './Pages/Home/Home';
 import Purchase from './Pages/Home/Purchase';
 import Login from './Pages/Login/Login';
@@ -37,7 +37,7 @@ function App() {
       </RequiredAuth>}>
         {/* <Route index element={<MyOrders></MyOrders>}></Route> */}
         <Route path='myOrder' element={<MyOrders></MyOrders>}></Route>
-        <Route path='review' element={<MyReview></MyReview>}></Route>
+        <Route path='review' element={<AddReview></AddReview>}></Route>
         <Route path='profile' element={<MyProfile></MyProfile>}></Route>
         <Route path='manageOrder' element={<ManageAllOrders></ManageAllOrders>}></Route>
         <Route path='addProduct' element={<AddAProduct></AddAProduct>}></Route>
