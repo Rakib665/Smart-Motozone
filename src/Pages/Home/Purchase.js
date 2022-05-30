@@ -10,7 +10,7 @@ const Purchase = () => {
     const [item, setItem] = useState({})
     const [user] = useAuthState(auth)
     useEffect(() => {
-        fetch(`http://localhost:5000/parts/${id}`)
+        fetch(`https://rocky-bayou-52722.herokuapp.com/parts/${id}`)
             .then(res => res.json())
             .then(data => setItem(data))
     }, [id])
