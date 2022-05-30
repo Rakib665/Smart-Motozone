@@ -27,7 +27,7 @@ const Purchase = () => {
            quantity: data.quantity
            
        }
-       fetch('http://localhost:5000/purchase',{
+       fetch('https://rocky-bayou-52722.herokuapp.com/purchase',{
            method: 'POST',
            headers: {
                'content-type': 'application/json'
